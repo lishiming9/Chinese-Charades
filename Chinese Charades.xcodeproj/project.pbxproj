@@ -13,7 +13,7 @@
 		702669BB1AB810F3005066E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 702669BA1AB810F3005066E0 /* Images.xcassets */; };
 		702669BE1AB810F3005066E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 702669BC1AB810F3005066E0 /* LaunchScreen.xib */; };
 		702669CA1AB810F3005066E0 /* Chinese_CharadesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702669C91AB810F3005066E0 /* Chinese_CharadesTests.swift */; };
-		702669D41AB8244D005066E0 /* CalcLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702669D31AB8244D005066E0 /* CalcLogic.swift */; };
+		702669D41AB8244D005066E0 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702669D31AB8244D005066E0 /* CountdownTimer.swift */; };
 		70C575391AB91EB2006333E7 /* GameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C575381AB91EB2006333E7 /* GameplayViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 		702669C31AB810F3005066E0 /* Chinese CharadesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chinese CharadesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		702669C81AB810F3005066E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		702669C91AB810F3005066E0 /* Chinese_CharadesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chinese_CharadesTests.swift; sourceTree = "<group>"; };
-		702669D31AB8244D005066E0 /* CalcLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalcLogic.swift; path = ../CalcLogic.swift; sourceTree = "<group>"; };
+		702669D31AB8244D005066E0 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountdownTimer.swift; path = ../CountdownTimer.swift; sourceTree = "<group>"; };
 		70C575381AB91EB2006333E7 /* GameplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 		702669B01AB810F3005066E0 /* Chinese Charades */ = {
 			isa = PBXGroup;
 			children = (
-				702669D31AB8244D005066E0 /* CalcLogic.swift */,
+				702669D31AB8244D005066E0 /* CountdownTimer.swift */,
 				702669B31AB810F3005066E0 /* AppDelegate.swift */,
 				702669B51AB810F3005066E0 /* ViewController.swift */,
 				70C575381AB91EB2006333E7 /* GameplayViewController.swift */,
@@ -219,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				702669D41AB8244D005066E0 /* CalcLogic.swift in Sources */,
+				702669D41AB8244D005066E0 /* CountdownTimer.swift in Sources */,
 				702669B61AB810F3005066E0 /* ViewController.swift in Sources */,
 				70C575391AB91EB2006333E7 /* GameplayViewController.swift in Sources */,
 				702669B41AB810F3005066E0 /* AppDelegate.swift in Sources */,

@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class CalcLogic{
-    
-    
 
+
+class CountdownTimer{
+    
 }

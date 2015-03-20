@@ -9,17 +9,21 @@
 import Foundation
 
 import UIKit
+import 	CoreMotion
+var secondsLeft:Int!;
 
 class GameplayViewController: UIViewController {
-    
-    var logic: CalcLogic!
     
     
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Landscape.rawValue)
     }
+    var timer: NSTimer!
     
+    var cmmotion :CMMotionManager!
+    var gyroData :CMGyroData!
     override func viewDidLoad() {
+        startCountdown()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -29,6 +33,40 @@ class GameplayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var timeCounter: UILabel!
+    @IBOutlet weak var myCounterLabel: UILabel!
+    @IBOutlet weak var restartButton: UIButton!
+    @IBAction func restartGame(sender: AnyObject) {
+        if(timer.valid == false){
+            startCountdown()
+        }
+    }
+    
+    func startCountdown(){
+        secondsLeft = 10;
+        myCounterLabel.text = "\(secondsLeft)"
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateCounter", userInfo: nil, repeats: true)
+        restartButton.hidden = true;
+        cmmotion.startGyroUpdates()
+        gyroData = cmmotion.gyroData
+    }
+    
+    
+    func updateCounter() {
+        if(secondsLeft > 0 ){
+            secondsLeft = secondsLeft - 1
+            myCounterLabel.text = "\(secondsLeft)"
+        }
+        else{
+            timer.invalidate()
+            restartButton.hidden = false;
+        }
+    }
+    
+    
+    @IBOutlet weak var wordLabel: UILabel!
+    
+    
+    
+    
     
 }
