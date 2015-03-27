@@ -15,6 +15,9 @@
 		702669CA1AB810F3005066E0 /* Chinese_CharadesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702669C91AB810F3005066E0 /* Chinese_CharadesTests.swift */; };
 		702669D41AB8244D005066E0 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702669D31AB8244D005066E0 /* CountdownTimer.swift */; };
 		70C575391AB91EB2006333E7 /* GameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C575381AB91EB2006333E7 /* GameplayViewController.swift */; };
+		70FABE651AC19EEB00938C46 /* data_apt.txt in Resources */ = {isa = PBXBuildFile; fileRef = 70FABE641AC19EEB00938C46 /* data_apt.txt */; };
+		70FABE671AC1A02100938C46 /* WordRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FABE661AC1A02100938C46 /* WordRandom.swift */; };
+		70FABE691AC1A14E00938C46 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FABE681AC1A14E00938C46 /* StreamReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		702669C91AB810F3005066E0 /* Chinese_CharadesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chinese_CharadesTests.swift; sourceTree = "<group>"; };
 		702669D31AB8244D005066E0 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountdownTimer.swift; path = ../CountdownTimer.swift; sourceTree = "<group>"; };
 		70C575381AB91EB2006333E7 /* GameplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayViewController.swift; sourceTree = "<group>"; };
+		70FABE641AC19EEB00938C46 /* data_apt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data_apt.txt; sourceTree = "<group>"; };
+		70FABE661AC1A02100938C46 /* WordRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordRandom.swift; sourceTree = "<group>"; };
+		70FABE681AC1A14E00938C46 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +92,12 @@
 				702669B51AB810F3005066E0 /* ViewController.swift */,
 				70C575381AB91EB2006333E7 /* GameplayViewController.swift */,
 				702669B71AB810F3005066E0 /* Main.storyboard */,
+				70FABE661AC1A02100938C46 /* WordRandom.swift */,
 				702669BA1AB810F3005066E0 /* Images.xcassets */,
+				70FABE641AC19EEB00938C46 /* data_apt.txt */,
 				702669BC1AB810F3005066E0 /* LaunchScreen.xib */,
 				702669B11AB810F3005066E0 /* Supporting Files */,
+				70FABE681AC1A14E00938C46 /* StreamReader.swift */,
 			);
 			path = "Chinese Charades";
 			sourceTree = "<group>";
@@ -199,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FABE651AC19EEB00938C46 /* data_apt.txt in Resources */,
 				702669B91AB810F3005066E0 /* Main.storyboard in Resources */,
 				702669BE1AB810F3005066E0 /* LaunchScreen.xib in Resources */,
 				702669BB1AB810F3005066E0 /* Images.xcassets in Resources */,
@@ -219,10 +229,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FABE691AC1A14E00938C46 /* StreamReader.swift in Sources */,
 				702669D41AB8244D005066E0 /* CountdownTimer.swift in Sources */,
 				702669B61AB810F3005066E0 /* ViewController.swift in Sources */,
 				70C575391AB91EB2006333E7 /* GameplayViewController.swift in Sources */,
 				702669B41AB810F3005066E0 /* AppDelegate.swift in Sources */,
+				70FABE671AC1A02100938C46 /* WordRandom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

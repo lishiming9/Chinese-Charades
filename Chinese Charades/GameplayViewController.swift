@@ -11,18 +11,28 @@ import Foundation
 import UIKit
 import 	CoreMotion
 var secondsLeft:Int!;
-
+var cardno = 0
 class GameplayViewController: UIViewController {
-    
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Landscape.rawValue)
-    }
+    let sourceFilePath = "word"
     var timer: NSTimer!
-    
     var cmmotion :CMMotionManager!
-    var gyroData :CMGyroData!
+    var referenceAttitude :CMAttitude!
+    var up = 0, down = 0, preroll:Double!
+    var list: [NSString]!
     override func viewDidLoad() {
+        cmmotion = CMMotionManager();
+        cmmotion.deviceMotionUpdateInterval = 0.2
+        
+        var encode:NSStringEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+        
+        let bundle = NSBundle.mainBundle()
+        let myFilePath = bundle.pathForResource("data_apt", ofType: "txt")
+        
+        
+        var wordstr:NSString = NSString(contentsOfFile: myFilePath!, encoding: NSUTF8StringEncoding,error: nil)!
+        
+        list = wordstr.componentsSeparatedByString("\n") as [NSString]
+        list = shuffle(list)
         startCountdown()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,20 +46,46 @@ class GameplayViewController: UIViewController {
     @IBOutlet weak var myCounterLabel: UILabel!
     @IBOutlet weak var restartButton: UIButton!
     @IBAction func restartGame(sender: AnyObject) {
-        if(timer.valid == false){
-            startCountdown()
-        }
+        up = 0; down = 0; cardno = 0; preroll = nil
+        upLabel.text = "0"
+        downLabel.text = "0"
+        list = shuffle(list)
+        startCountdown()
     }
     
     func startCountdown(){
-        secondsLeft = 10;
+        self.wordLabel.text = list[cardno++]
+        secondsLeft = 10
         myCounterLabel.text = "\(secondsLeft)"
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "updateCounter", userInfo: nil, repeats: true)
         restartButton.hidden = true;
-        cmmotion.startGyroUpdates()
-        gyroData = cmmotion.gyroData
+        cmmotion.startDeviceMotionUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: { (cmmotion:CMDeviceMotion!, error :NSError!) -> Void in
+            
+            if(self.preroll == nil){
+                self.preroll = cmmotion.attitude.roll
+            }
+            else if(self.preroll < -0.8 && cmmotion.attitude.roll > -0.8){
+                self.up++; self.upLabel.text = "\(self.up)";
+                self.wordLabel.text = self.list[cardno++]
+            }else if(self.preroll > -2.2 && cmmotion.attitude.roll < -2.2){
+                self.down++; self.downLabel.text = "\(self.down)";
+                self.wordLabel.text = self.list[cardno++]
+            }
+            self.preroll = cmmotion.attitude.roll
+        })
     }
     
+    
+    func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
+        let count = countElements(list)
+        for i in 0..<(count - 1) {
+            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+            swap(&list[i], &list[j])
+        }
+        return list
+    }
+
     
     func updateCounter() {
         if(secondsLeft > 0 ){
@@ -58,12 +94,15 @@ class GameplayViewController: UIViewController {
         }
         else{
             timer.invalidate()
-            restartButton.hidden = false;
+            restartButton.hidden = false
+            cmmotion.stopDeviceMotionUpdates()
         }
     }
     
     
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var upLabel: UILabel!
+    @IBOutlet weak var downLabel: UILabel!
     
     
     

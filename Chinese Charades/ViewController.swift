@@ -11,9 +11,6 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    override func supportedInterfaceOrientations() -> Int {
-            return Int(UIInterfaceOrientationMask.Portrait.rawValue)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +25,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var titalLable: UILabel!
 
     
-    @IBAction func gameStart(sender: AnyObject) {
-        var btn :UIButton = sender as UIButton
-        titalLable.text = "全民"
-    }
     
 }
 
